@@ -1,11 +1,9 @@
 package com.app.testpexel.presentation.photo
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.view.inputmethod.InputMethodManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.testpexel.R
@@ -13,10 +11,10 @@ import com.app.testpexel.base.BaseActivity
 import com.app.testpexel.databinding.ActivityPhotosBinding
 import com.app.testpexel.presentation.photo_detail.PhotoDetailActivity
 import com.app.testpexel.utils.gone
-import com.app.testpexel.utils.handleHideKeyBoardWhenClick
 import com.app.testpexel.utils.hideSoftKeyboard
 import com.app.testpexel.utils.viewBindings
 import com.app.testpexel.utils.visible
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.koin.android.ext.android.inject
 
 class PhotoSearchActivity : BaseActivity<ActivityPhotosBinding>(R.layout.activity_photos) {
@@ -39,6 +37,10 @@ class PhotoSearchActivity : BaseActivity<ActivityPhotosBinding>(R.layout.activit
 
     @SuppressLint("NotifyDataSetChanged")
     override fun bindViewModel() {
+
+        viewModel.errorO.observe(this) {
+            showDialogError()
+        }
         viewModel.loadingO.observe(this) {
             binding.prgLoading.visibility = if(it) View.VISIBLE else View.GONE
         }
@@ -48,6 +50,11 @@ class PhotoSearchActivity : BaseActivity<ActivityPhotosBinding>(R.layout.activit
             photoAdapter.submitList(it)
             photoAdapter.notifyDataSetChanged()
             binding.swRefresh.isRefreshing = false
+            if (it.isEmpty()) {
+                binding.tvNoData.visible()
+            } else {
+                binding.tvNoData.gone()
+            }
         }
     }
 
@@ -111,5 +118,13 @@ class PhotoSearchActivity : BaseActivity<ActivityPhotosBinding>(R.layout.activit
             prgLoadmore.visible()
             viewModel.getVideos(query = query, loadMore = true)
         }
+    }
+
+    private fun showDialogError() {
+        MaterialAlertDialogBuilder(this).setMessage(getString(R.string.string_error_exception))
+            .setCancelable(true)
+            .setPositiveButton("OK") { dialog, p1 ->
+                dialog.dismiss()
+            }.setCancelable(false).show()
     }
 }

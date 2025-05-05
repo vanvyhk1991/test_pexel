@@ -23,8 +23,11 @@ class PhotoViewModel(private val remoteRepository: IRemoteRepository) : BaseView
                     } else {
                         dataI.value = response.photos.toMutableList()
                     }
+                } else {
+                    dataI.value = mutableListOf()
                 }
             } catch (e: Exception) {
+                errorI.value = e
                 e.printStackTrace()
             } finally {
                 loadingI.value = false

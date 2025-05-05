@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Test Pexel</string>
+    <string name="string_error_exception">An error has occurred. Please come back later!</string>
+    <string name="string_no_data">No Data Found!\nPlease request again !</string>
+    <string name="string_title">Pexel</string>
+    <string name="string_photographer_name">Photographer Name:</string>
+    <string name="string_size_image">Size Image:</string>
 </resources>

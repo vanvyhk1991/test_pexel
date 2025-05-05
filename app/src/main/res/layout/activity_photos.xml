@@ -14,7 +14,7 @@
         android:layout_margin="@dimen/_14sdp"
         android:layout_marginStart="@dimen/_2sdp"
         android:fontFamily="@font/lemon_regular"
-        android:text="Pexel"
+        android:text="@string/string_title"
         android:textColor="@color/color_white"
         android:textSize="@dimen/_13sdp"
         app:layout_constraintBottom_toBottomOf="@+id/cl_search"
@@ -103,4 +103,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tv_no_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_14sdp"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:fontFamily="@font/lemon_regular"
+        android:gravity="center"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:text="@string/string_no_data"
+        android:textColor="@color/color_80B7B7B7"
+        android:textSize="@dimen/_11sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
