@@ -14,20 +14,26 @@ In Photo detail: show image, zoom image with gesture.
 Technical:
  Use MVVM pattern, koin DI, Retrofit, Coroutines.
 App architecture:
- data----model
-    |____remote____adapter
-    |         |____api
-    |         |____interceptor
-    |         |____repository
-    |____response
- presentation----photoList
-            |____photoDetail
- utils
+```plaintext
+ |data____model
+ |   |
+ |   |____remote____adapter
+ |   |
+ |   |         |____api
+ |   |
+ |   |         |____interceptor
+ |   |
+ |   |         |____repository
+ |   |
+ |   |____response
+ |
+ |presentation----photoList
+ |           |____photoDetail
+ |utils
+```
 
  Result:
-   File video result: 
-  <video width="30%" controls>
-    <source src="app/src/main/assets/result_pexel.mov" type="video/*">
-  </video>
- 
+   File video result: app/src/main/assets/result_pexel.mov (https://youtube.com/shorts/-cDKUc3aCo4)
+
+   File APK result: app/src/main/assets/result_pexel.apk
  
