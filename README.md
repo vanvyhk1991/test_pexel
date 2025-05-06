@@ -5,6 +5,7 @@ Photo list:
   - show list photos
   - load more list photo with icon loading
   - search photos.
+  - pull to refresh photo list.
   - show text if list photo empty.
   - show dialog error if have exception.
     
