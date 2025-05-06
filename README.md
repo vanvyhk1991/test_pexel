@@ -13,7 +13,8 @@ In item photo show info: photo, photographer, size image.
 In Photo detail: show image, zoom image with gesture.
 
 Technical:
- Use MVVM pattern, koin DI, Retrofit, Coroutines.
+ Use MVVM pattern, koin DI, Retrofit, Glide, Coroutines.
+
 App architecture:
 ```plaintext
  |data____model
