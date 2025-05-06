@@ -19,11 +19,11 @@ App architecture:
  |data____model
  |   |
  |   |____remote____adapter
- |   |
+ |   |         | 
  |   |         |____api
- |   |
+ |   |         | 
  |   |         |____interceptor
- |   |
+ |   |         |
  |   |         |____repository
  |   |
  |   |____response
