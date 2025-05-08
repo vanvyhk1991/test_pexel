@@ -46,8 +46,9 @@ data class DataPhoto(
     val liked: Boolean,
     val alt: String?
 ): Parcelable{
-
-    fun getSizeImage(): String{
+    val sizeImageString: String
+        get() = getSizeImage()
+     fun getSizeImage(): String{
         return "$width x $height Pixel"
     }
 

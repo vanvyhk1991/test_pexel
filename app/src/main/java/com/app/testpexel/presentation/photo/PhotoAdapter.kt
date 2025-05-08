@@ -38,18 +38,11 @@ class PhotoAdapter() : ListAdapter<DataPhoto, PhotoAdapter.ItemPhotoViewHolder>(
     inner class ItemPhotoViewHolder(private val binding: ItemListPhotoBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun onBind(itemPhoto: DataPhoto) {
-            binding.apply {
-                GlideEngine.instance?.loadPhotoUrl(
-                    root.context, itemPhoto.src?.original.toString(), ivThumbnail
-                )
-                tvDescription.text = itemPhoto.alt
-                tvOwner.text = itemPhoto.photographer
-                tvSizeImage.text = itemPhoto.getSizeImage()
-
-                root.setOnClickListener {
-                    onItemPhotoClickListener?.invoke(itemPhoto)
-                }
+        fun onBind(photo: DataPhoto) {
+            binding.dataPhoto = photo
+            binding.executePendingBindings()
+            binding.root.setOnClickListener {
+                onItemPhotoClickListener?.invoke(photo)
             }
         }
     }

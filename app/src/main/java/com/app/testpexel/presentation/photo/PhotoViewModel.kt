@@ -12,7 +12,7 @@ class PhotoViewModel(private val remoteRepository: IRemoteRepository) : BaseView
 
     fun getVideos(query: String, loadMore: Boolean = false) {
         if (loadingI.value == true) return
-        loadingI.value = true
+        loadingI.value = !loadMore
         page = if (loadMore) page + 1 else 1
         viewModelScope.launch {
             try {
